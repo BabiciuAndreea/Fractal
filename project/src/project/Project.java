@@ -34,6 +34,7 @@ public class Project extends JPanel {
     int x4 ;
     int y4 ;
     int iterations = 4;
+    int grade;
 
     public Project(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
         setBackground(Color.WHITE);
@@ -131,6 +132,15 @@ public class Project extends JPanel {
         return iterations;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    
     public static void main(String[] args) {
         JFrame frame = new JFrame("Random Fractal Four Lines");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
