@@ -67,6 +67,30 @@ public class Individual {
         }
     }
 
+    public Project tournamentSelection(ArrayList<Project> population) {
+        Random random = new Random();
+        ArrayList<Project> tournamentParticipants = new ArrayList<>();
+
+        // Select random individuals for the tournament
+        for (int i = 0; i < 8; i++) {
+            int randomIndex = random.nextInt(population.size());
+            tournamentParticipants.add(population.get(randomIndex));
+        }
+
+        // Evaluate fitness for each participant in the tournament
+        double bestFitness = Double.NEGATIVE_INFINITY;
+        Project bestIndividual = null;
+        for (Project individual : tournamentParticipants) {
+            double fitness = fitness(individual);
+            if (fitness > bestFitness) {
+                bestFitness = fitness;
+                bestIndividual = individual;
+            }
+        }
+
+        return bestIndividual;
+    }
+
     public double fitness(Project fractal) {
         int totalArea = calculateTotalArea(fractal);
         int coveredArea = calculateCoveredArea(fractal);
@@ -86,7 +110,7 @@ public class Individual {
         double maxAngle = 120.0;
 
         // Define the minimum distance allowed
-        double minDistance = 15.0; 
+        double minDistance = 15.0;
 
         // Initialize the grade
         int grade = 0;
@@ -186,5 +210,7 @@ public class Individual {
         int dy = y2 - y1;
         return Math.sqrt(dx * dx + dy * dy);
     }
+    
+    
 
 }
