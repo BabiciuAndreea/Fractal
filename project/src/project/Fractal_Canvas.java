@@ -7,6 +7,7 @@ package project;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 /**
@@ -52,6 +53,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         fractal8 = new javax.swing.JButton();
         seeButton = new javax.swing.JButton();
         newPaintsButton = new javax.swing.JButton();
+        bestFractals = new javax.swing.JButton();
         grade = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
@@ -165,7 +167,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 newPaintsButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(newPaintsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 64, 102, -1));
+        getContentPane().add(newPaintsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 102, -1));
+
+        bestFractals.setText("Best paintings");
+        bestFractals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bestFractalsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bestFractals, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, -1, -1));
 
         grade.setBackground(new java.awt.Color(153, 153, 153));
         grade.setText("Please give some grades");
@@ -174,7 +184,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 gradeActionPerformed(evt);
             }
         });
-        getContentPane().add(grade, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 150, 40));
+        getContentPane().add(grade, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 150, 40));
 
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\andreea\\Desktop\\Facultate+CV\\test_licenta\\black fractal.PNG")); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
@@ -182,45 +192,77 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    ArrayList<Project> fractals;
+    ArrayList<Project> firstParent, secondParent, oldGeneration, newGeneration, newPaintings, newPaintings2, firstChild, secondChild;
+    //ArrayList<Project> figures;
+    Project figures, second;
+
+    Random random = new Random();
+    int grades = 0, limit = 100;
+
+    Individual generation = new Individual();
+
+    Fractals_shapes fractals;
+    //Project coordinates;
+
+    //ArrayList<Project> fractals;
 
     private void gradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeActionPerformed
         // TODO add your handling code here:
 
 
     }//GEN-LAST:event_gradeActionPerformed
-    Fractals_shapes canvas;
-    Project coordinates;
+
     private void seeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeButtonActionPerformed
         // TODO add your handling code here:
-        
-        fractals = new ArrayList<Project>(7);
-        for (int i = 0; i < 7; i++) {
 
-            x1 = rand.nextInt(400);
-            y1 = rand.nextInt(350);
-            x2 = rand.nextInt(400);
-            y2 = rand.nextInt(350);
-            x3 = rand.nextInt(400);
-            y3 = rand.nextInt(350);
-            x4 = rand.nextInt(400);
-            y4 = rand.nextInt(350);
-            fractals.add(new Project(x1, y1, x2, y2, x3, y3, x4, y4));
-            System.out.println("fractal " + i + " created");
+        firstParent = new ArrayList<Project>();
+        secondParent = new ArrayList<Project>();
+        oldGeneration = new ArrayList<Project>(limit);
+        newGeneration = new ArrayList<Project>(limit);
+        newPaintings = new ArrayList<Project>(limit); //first array with childs
+        newPaintings2 = new ArrayList<Project>(limit); //second array with childs
+
+        for (int i = 0; i < limit; i++) {
+
+            x1 = random.nextInt(400);
+            y1 = random.nextInt(350);
+            x2 = random.nextInt(400);
+            y2 = random.nextInt(350);
+            x3 = random.nextInt(400);
+            y3 = random.nextInt(350);
+            x4 = random.nextInt(400);
+            y4 = random.nextInt(350);
+
+            oldGeneration.add(new Project(x1, y1, x2, y2, x3, y3, x4, y4));
 
         }
+        System.out.println("fractals created");
+        figures = oldGeneration.get(0);
 
-        canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
+        //fractals = new ArrayList<Project>(7);
+//        for (int i = 0; i < 8; i++) {
+//
+//            x1 = rand.nextInt(400);
+//            y1 = rand.nextInt(350);
+//            x2 = rand.nextInt(400);
+//            y2 = rand.nextInt(350);
+//            x3 = rand.nextInt(400);
+//            y3 = rand.nextInt(350);
+//            x4 = rand.nextInt(400);
+//            y4 = rand.nextInt(350);
+//            fractals.add(new Project(x1, y1, x2, y2, x3, y3, x4, y4));
+//            System.out.println("fractal " + i + " created");
+//
+//        }
+        fractals = new Fractals_shapes();
 
         Graphics g = jPanel1.getGraphics();
-        canvas.drawFractals(g, coordinates.getX1(), coordinates.getY1(), coordinates.getX2(), coordinates.getY2(), coordinates.getX3(), coordinates.getY3(), coordinates.getX4(), coordinates.getY4(), 4);
+        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
 
         Graphics g1 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g1, coordinates.getX1(), coordinates.getY1(), coordinates.getX2(), coordinates.getY2(), coordinates.getX3(), coordinates.getY3(), coordinates.getX4(), coordinates.getY4(), 0.25);
+        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
 
 
-        
     }//GEN-LAST:event_seeButtonActionPerformed
 
     private void newPaintsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPaintsButtonActionPerformed
@@ -232,119 +274,173 @@ public class Fractal_Canvas extends javax.swing.JFrame {
     private void fractal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal1ActionPerformed
         // TODO add your handling code here:
 
-        canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
-
         Graphics g = jPanel1.getGraphics();
-        canvas.drawFractals(g, coordinates.getX1(), coordinates.getY1(), coordinates.getX2(), coordinates.getY2(), coordinates.getX3(), coordinates.getY3(), coordinates.getX4(), coordinates.getY4(), 4);
+        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
 
         Graphics g1 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g1, coordinates.getX1(), coordinates.getY1(), coordinates.getX2(), coordinates.getY2(), coordinates.getX3(), coordinates.getY3(), coordinates.getX4(), coordinates.getY4(), 0.25);
+        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
 
 
     }//GEN-LAST:event_fractal1ActionPerformed
 
     private void fractal5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal5ActionPerformed
 
-       
-        canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
-
         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(3).getX1(), fractals.get(3).getY1(), fractals.get(3).getX2(), fractals.get(3).getY2(), fractals.get(3).getX3(), fractals.get(3).getY3(), fractals.get(3).getX4(), fractals.get(3).getY4(), 4);
+        fractals.drawFractals(g4, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(3).getX1(), fractals.get(3).getY1(), fractals.get(3).getX2(), fractals.get(3).getY2(), fractals.get(3).getX3(), fractals.get(3).getY3(), fractals.get(3).getX4(), fractals.get(3).getY4(), 0.25);
-       
+        fractals.drawFirstIteration(g5, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 0.25);
+
     }//GEN-LAST:event_fractal5ActionPerformed
 
     private void fractal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal2ActionPerformed
         // TODO add your handling code here:
-        
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
 
         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(0).getX1(), fractals.get(0).getY1(), fractals.get(0).getX2(), fractals.get(0).getY2(), fractals.get(0).getX3(), fractals.get(0).getY3(), fractals.get(0).getX4(), fractals.get(0).getY4(), 4);
+        fractals.drawFractals(g4, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(0).getX1(), fractals.get(0).getY1(), fractals.get(0).getX2(), fractals.get(0).getY2(), fractals.get(0).getX3(), fractals.get(0).getY3(), fractals.get(0).getX4(), fractals.get(0).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 0.25);
 
     }//GEN-LAST:event_fractal2ActionPerformed
 
     private void fractal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal3ActionPerformed
         // TODO add your handling code here:
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
 
         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(1).getX1(), fractals.get(1).getY1(), fractals.get(1).getX2(), fractals.get(1).getY2(), fractals.get(1).getX3(), fractals.get(1).getY3(), fractals.get(1).getX4(), fractals.get(1).getY4(), 4);
+        fractals.drawFractals(g4, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(1).getX1(), fractals.get(1).getY1(), fractals.get(1).getX2(), fractals.get(1).getY2(), fractals.get(1).getX3(), fractals.get(1).getY3(), fractals.get(1).getX4(), fractals.get(1).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 0.25);
 
     }//GEN-LAST:event_fractal3ActionPerformed
 
     private void fractal4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal4ActionPerformed
         // TODO add your handling code here:
-        
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
 
         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(2).getX1(), fractals.get(2).getY1(), fractals.get(2).getX2(), fractals.get(2).getY2(), fractals.get(2).getX3(), fractals.get(2).getY3(), fractals.get(2).getX4(), fractals.get(2).getY4(), 4);
+        fractals.drawFractals(g4, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(2).getX1(), fractals.get(2).getY1(), fractals.get(2).getX2(), fractals.get(2).getY2(), fractals.get(2).getX3(), fractals.get(2).getY3(), fractals.get(2).getX4(), fractals.get(2).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 0.25);
 
     }//GEN-LAST:event_fractal4ActionPerformed
 
     private void fractal6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal6ActionPerformed
         // TODO add your handling code here:
-        
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
-        
-         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(4).getX1(), fractals.get(4).getY1(), fractals.get(4).getX2(), fractals.get(4).getY2(), fractals.get(4).getX3(), fractals.get(4).getY3(), fractals.get(4).getX4(), fractals.get(4).getY4(), 4);
+
+        Graphics g4 = jPanel1.getGraphics();
+        fractals.drawFractals(g4, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(4).getX1(), fractals.get(4).getY1(), fractals.get(4).getX2(), fractals.get(4).getY2(), fractals.get(4).getX3(), fractals.get(4).getY3(), fractals.get(4).getX4(), fractals.get(4).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 0.25);
 
 
     }//GEN-LAST:event_fractal6ActionPerformed
 
     private void fractal7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal7ActionPerformed
         // TODO add your handling code here:
-        
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
-        
-         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(5).getX1(), fractals.get(5).getY1(), fractals.get(5).getX2(), fractals.get(5).getY2(), fractals.get(5).getX3(), fractals.get(5).getY3(), fractals.get(5).getX4(), fractals.get(5).getY4(), 4);
+
+        Graphics g4 = jPanel1.getGraphics();
+        fractals.drawFractals(g4, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(5).getX1(), fractals.get(5).getY1(), fractals.get(5).getX2(), fractals.get(5).getY2(), fractals.get(5).getX3(), fractals.get(5).getY3(), fractals.get(5).getX4(), fractals.get(5).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 0.25);
 
 
-        
     }//GEN-LAST:event_fractal7ActionPerformed
 
     private void fractal8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal8ActionPerformed
         // TODO add your handling code here:
-        
-         canvas = new Fractals_shapes();
-        coordinates = new Project(x1, y1, x2, y2, x3, y3, x4, y4);
 
-        
         Graphics g4 = jPanel1.getGraphics();
-        canvas.drawFractals(g4, fractals.get(6).getX1(), fractals.get(6).getY1(), fractals.get(6).getX2(), fractals.get(6).getY2(), fractals.get(6).getX3(), fractals.get(6).getY3(), fractals.get(6).getX4(), fractals.get(6).getY4(), 4);
+        fractals.drawFractals(g4, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 4);
 
         Graphics g5 = jPanel2.getGraphics();
-        canvas.drawFirstIteration(g5, fractals.get(6).getX1(), fractals.get(6).getY1(), fractals.get(6).getX2(), fractals.get(6).getY2(), fractals.get(6).getX3(), fractals.get(6).getY3(), fractals.get(6).getX4(), fractals.get(6).getY4(), 0.25);
+        fractals.drawFirstIteration(g5, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 0.25);
 
-        
+
     }//GEN-LAST:event_fractal8ActionPerformed
+
+    private void bestFractalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestFractalsActionPerformed
+        // TODO add your handling code here:
+
+        int k = 0;
+        while (k < 10) {
+
+            k++;
+            firstParent = new ArrayList<>();
+            secondParent = new ArrayList<>();
+            firstChild = new ArrayList<>();
+            secondChild = new ArrayList<>();
+            newPaintings.clear();
+            newPaintings2.clear();
+
+            for (int i = 0; i < 100; i++) {
+                //System.out.println("i: " + i);
+                figures = oldGeneration.get(i);
+                oldGeneration.get(i).setGrade(generation.fitness(figures));
+            }
+
+            for (int i = 0; i < 100; i++) {
+                int newX1 = random.nextInt(400);
+                int newY1 = random.nextInt(350);
+                int newX2 = random.nextInt(400);
+                int newY2 = random.nextInt(350);
+                int newX3 = random.nextInt(400);
+                int newY3 = random.nextInt(350);
+                int newX4 = random.nextInt(400);
+                int newY4 = random.nextInt(350);
+
+                newPaintings.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
+                newPaintings2.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
+            }
+
+            generation.bubbleSort(oldGeneration);
+
+            for (int i = 0; i < 100; i++) {
+                //System.out.println("i: " + i);
+                figures = oldGeneration.get(i);
+            }
+
+            for (int i = 0; i < 100; i++) {
+
+                firstParent.clear();
+                firstParent.add(generation.tournamentSelection(oldGeneration));
+
+                secondParent.clear();
+                secondParent.add(generation.tournamentSelection(oldGeneration));
+
+                figures = newPaintings.get(i);
+                generation.crossover(firstParent, secondParent);
+                generation.mutate(firstChild);
+                generation.mutate(secondChild);
+
+            }
+
+            oldGeneration.clear();
+            oldGeneration.addAll(newPaintings);
+
+        }
+
+        for (int i = 0; i < 100; i++) {
+
+            figures = oldGeneration.get(i);
+            oldGeneration.get(i).setGrade(generation.fitness(figures));
+        }
+        generation.bubbleSort(oldGeneration);
+
+        for (int i = 0; i < 100; i++) {
+            //System.out.println("i: " + i);
+            figures = oldGeneration.get(i);
+            oldGeneration.get(i).setGrade(generation.fitness(figures));
+            System.out.println("Fractals: " + i);
+            System.out.println("Grade: " + oldGeneration.get(i).getGrade());
+            
+        }
+        System.out.print("\n");
+
+    }//GEN-LAST:event_bestFractalsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -382,6 +478,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bestFractals;
     private javax.swing.JButton fractal1;
     private javax.swing.JButton fractal2;
     private javax.swing.JButton fractal3;

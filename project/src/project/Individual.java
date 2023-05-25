@@ -17,13 +17,13 @@ public class Individual {
         ArrayList<Project> child1, child2;
         int size = parent1.size();
         Random rand = new Random();
-        int crossoverPoint = rand.nextInt(size); // Randomly select the crossover point
+        int crossoverPoint = rand.nextInt(size); // get a random point fot crossoverPoint
 
         //the each child get the first coordonates from one parent up to the crossoverPoint
         child1 = new ArrayList<>(parent1.subList(0, crossoverPoint));
         child2 = new ArrayList<>(parent2.subList(0, crossoverPoint));
 
-        // we give the rest of coordonates 
+        // get the rest of coordonates 
         for (int i = crossoverPoint; i < size; i++) {
             child1.add(parent2.get(i));
             child2.add(parent1.get(i));
@@ -34,50 +34,50 @@ public class Individual {
     public void mutate(ArrayList<Project> childFractal) {
         Random random = new Random();
 
-        Project mutateChild = childFractal.get(random.nextInt(childFractal.size()));
-
-        //the child will receive a random coordonate as a mutation
-        switch (random.nextInt(4)) {
-            case 0:
-                int newX1 = random.nextInt(100);
-                int newY1 = random.nextInt(100);
-                mutateChild.setX1(newX1);
-                mutateChild.setY1(newY1);
-                break;
-            case 1:
-                int newX2 = random.nextInt(100);
-                int newY2 = random.nextInt(100);
-                mutateChild.setX2(newX2);
-                mutateChild.setY2(newY2);
-                break;
-            case 2:
-                int newX3 = random.nextInt(100);
-                int newY3 = random.nextInt(100);
-                mutateChild.setX3(newX3);
-                mutateChild.setY3(newY3);
-                break;
-            case 3:
-                int newX4 = random.nextInt(100);
-                int newY4 = random.nextInt(100);
-                mutateChild.setX4(newX4);
-                mutateChild.setY4(newY4);
-                break;
-            default:
-                break;
+        for (Project project : childFractal) {
+            switch (random.nextInt(4)) {
+                case 0:
+                    int newX1 = random.nextInt(100);
+                    int newY1 = random.nextInt(100);
+                    project.setX1(newX1);
+                    project.setY1(newY1);
+                    break;
+                case 1:
+                    int newX2 = random.nextInt(100);
+                    int newY2 = random.nextInt(100);
+                    project.setX2(newX2);
+                    project.setY2(newY2);
+                    break;
+                case 2:
+                    int newX3 = random.nextInt(100);
+                    int newY3 = random.nextInt(100);
+                    project.setX3(newX3);
+                    project.setY3(newY3);
+                    break;
+                case 3:
+                    int newX4 = random.nextInt(100);
+                    int newY4 = random.nextInt(100);
+                    project.setX4(newX4);
+                    project.setY4(newY4);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
+    //public ArrayList<Project> tournamentSelection(ArrayList<Project> population){
     public Project tournamentSelection(ArrayList<Project> population) {
         Random random = new Random();
         ArrayList<Project> tournamentParticipants = new ArrayList<>();
 
-        // Select random individuals for the tournament
+        // Select random individuals for the selection
         for (int i = 0; i < 8; i++) {
             int randomIndex = random.nextInt(population.size());
             tournamentParticipants.add(population.get(randomIndex));
         }
 
-        // Evaluate fitness for each participant in the tournament
+        // Individuals have to pas the fitness 
         double bestFitness = Double.NEGATIVE_INFINITY;
         Project bestIndividual = null;
         for (Project individual : tournamentParticipants) {
@@ -91,7 +91,7 @@ public class Individual {
         return bestIndividual;
     }
 
-    public double fitness(Project fractal) {
+    public int fitness(Project fractal) {
         int totalArea = calculateTotalArea(fractal);
         int coveredArea = calculateCoveredArea(fractal);
         double coveragePercentage = (double) coveredArea / totalArea * 100;
@@ -105,17 +105,23 @@ public class Individual {
         // Calculate the distance between x1, y1 and x4, y4
         double distance = calculateDistance(fractal.getX1(), fractal.getY1(), fractal.getX4(), fractal.getY4());
 
-        // Define the minimum and maximum allowed angles (in degrees)
+        //  The allowed angles, maxim and minim 
         double minAngle = 40.0;
         double maxAngle = 120.0;
 
-        // Define the minimum distance allowed
+        // The minim allowed distance  between x1,y1 and x4,y4
         double minDistance = 15.0;
 
-        // Initialize the grade
         int grade = 0;
+        
+        // Check if the coverage percentage fits the rules
+        if (coveragePercentage >= 40) {
+            grade += 3;
+        } else if (coveragePercentage < 30) {
+            grade--;
+        }
 
-        // Check the angles and adjust the grade accordingly
+        // Check the angles between each line and give the grade
         if (angle1 < minAngle || angle1 > maxAngle) {
             grade--;
         } else {
@@ -140,20 +146,16 @@ public class Individual {
             grade += 2;
         }
 
-        // Check the distance and adjust the grade accordingly
+        // Check the distance between x1, y1 and x4, y4
         if (distance < minDistance) {
             grade--;
         } else {
-            grade += 2;
+            grade += 3;
         }
 
-        // Check if the coverage percentage fits the rules
-        if (coveragePercentage >= 40) {
-            grade += 2;
-        } else if (coveragePercentage < 30) {
-            grade--;
-        }
+        
 
+        grade = Math.max(0, grade);
         return grade;
     }
 
@@ -210,7 +212,23 @@ public class Individual {
         int dy = y2 - y1;
         return Math.sqrt(dx * dx + dy * dy);
     }
-    
-    
+
+    public void bubbleSort(ArrayList<Project> paintings) {
+
+        int k = 0;
+        for (int i = 0; i < 100 - 1; i++) {
+            k++;
+
+            for (int j = 0; j < 100 - i - 1; j++) {
+                if (paintings.get(j).getGrade() < paintings.get(j + 1).getGrade()) {
+
+                    int temp = paintings.get(j).getGrade();
+                    paintings.get(j).setGrade(paintings.get(j + 1).getGrade());
+                    paintings.get(j + 1).setGrade(temp);
+
+                }
+            }
+        }
+    }
 
 }
