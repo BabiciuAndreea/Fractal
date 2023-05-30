@@ -194,7 +194,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 
     ArrayList<Project> firstParent, secondParent, oldGeneration, newGeneration, newPaintings, newPaintings2, firstChild, secondChild;
     //ArrayList<Project> figures;
-    Project figures, second;
+    Project figures, best;
 
     Random random = new Random();
     int grades = 0, limit = 100;
@@ -254,14 +254,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //            System.out.println("fractal " + i + " created");
 //
 //        }
-        fractals = new Fractals_shapes();
-
-        Graphics g = jPanel1.getGraphics();
-        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
-
-        Graphics g1 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
-
+        //fractals = new Fractals_shapes();
+//        Graphics g = jPanel1.getGraphics();
+//        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
+//
+//        Graphics g1 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
 
     }//GEN-LAST:event_seeButtonActionPerformed
 
@@ -274,91 +272,91 @@ public class Fractal_Canvas extends javax.swing.JFrame {
     private void fractal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal1ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g = jPanel1.getGraphics();
-        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
-
-        Graphics g1 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
-
+//        Graphics g = jPanel1.getGraphics();
+//        fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4);
+//
+//        Graphics g1 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
+        displayFractal(0);
 
     }//GEN-LAST:event_fractal1ActionPerformed
 
     private void fractal5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal5ActionPerformed
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 0.25);
+        displayFractal(4);
     }//GEN-LAST:event_fractal5ActionPerformed
 
     private void fractal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal2ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 0.25);
+        displayFractal(1);
     }//GEN-LAST:event_fractal2ActionPerformed
 
     private void fractal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal3ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 0.25);
+        displayFractal(2);
     }//GEN-LAST:event_fractal3ActionPerformed
 
     private void fractal4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal4ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 0.25);
+        displayFractal(3);
     }//GEN-LAST:event_fractal4ActionPerformed
 
     private void fractal6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal6ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 0.25);
+        displayFractal(5);
 
     }//GEN-LAST:event_fractal6ActionPerformed
 
     private void fractal7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal7ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 0.25);
+        displayFractal(6);
 
     }//GEN-LAST:event_fractal7ActionPerformed
 
     private void fractal8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal8ActionPerformed
         // TODO add your handling code here:
 
-        Graphics g4 = jPanel1.getGraphics();
-        fractals.drawFractals(g4, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 4);
-
-        Graphics g5 = jPanel2.getGraphics();
-        fractals.drawFirstIteration(g5, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 0.25);
-
+//        Graphics g4 = jPanel1.getGraphics();
+//        fractals.drawFractals(g4, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 4);
+//
+//        Graphics g5 = jPanel2.getGraphics();
+//        fractals.drawFirstIteration(g5, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 0.25);
+        displayFractal(7);
 
     }//GEN-LAST:event_fractal8ActionPerformed
 
@@ -377,11 +375,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             newPaintings2.clear();
 
             for (int i = 0; i < 100; i++) {
-                //System.out.println("i: " + i);
+                //System.out.println("i: " + i);  First generation with fitness applied
                 figures = oldGeneration.get(i);
                 oldGeneration.get(i).setGrade(generation.fitness(figures));
             }
 
+            //New generation created 
             for (int i = 0; i < 100; i++) {
                 int newX1 = random.nextInt(400);
                 int newY1 = random.nextInt(350);
@@ -401,30 +400,32 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             for (int i = 0; i < 100; i++) {
                 //System.out.println("i: " + i);
                 figures = oldGeneration.get(i);
+
             }
 
             for (int i = 0; i < 100; i++) {
 
-                firstParent.clear();
+                firstParent.clear(); //kill the first parent
                 firstParent.add(generation.tournamentSelection(oldGeneration));
 
-                secondParent.clear();
+                secondParent.clear(); //kill the second parent
                 secondParent.add(generation.tournamentSelection(oldGeneration));
 
-                figures = newPaintings.get(i);
-                generation.crossover(firstParent, secondParent);
+                figures = newPaintings.get(i); //save new generation
+                generation.crossover(firstParent, secondParent); //crossover over the new generation
                 generation.mutate(firstChild);
-                generation.mutate(secondChild);
+                generation.mutate(secondChild); //aplied mutation on chlids
 
             }
 
-            oldGeneration.clear();
-            oldGeneration.addAll(newPaintings);
+            oldGeneration.clear(); //kill old generation
+            oldGeneration.addAll(newPaintings); // add new generation
 
         }
 
         for (int i = 0; i < 100; i++) {
 
+            //new generation, when we have all the child, have to pass the fitness and get a grade
             figures = oldGeneration.get(i);
             oldGeneration.get(i).setGrade(generation.fitness(figures));
         }
@@ -433,14 +434,58 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         for (int i = 0; i < 100; i++) {
             //System.out.println("i: " + i);
             figures = oldGeneration.get(i);
-            oldGeneration.get(i).setGrade(generation.fitness(figures));
+
+            //oldGeneration.get(i).setGrade(generation.fitness(figures));
+            //new generation after fitness and the grade they get
             System.out.println("Fractals: " + i);
             System.out.println("Grade: " + oldGeneration.get(i).getGrade());
-            
+
         }
         System.out.print("\n");
 
+        System.out.print("Best fractals" + "\n");
+        for (int j = 0; j < 8 && j < oldGeneration.size(); j++) {
+            best = oldGeneration.get(j);
+            System.out.println("Fractal: " + j);
+            System.out.println("Grade: " + best.getGrade());
+            System.out.println();
+        }
+
+        //for graphics 
+        fractals = new Fractals_shapes();
+
+        int startIndex = Math.max(0, oldGeneration.size() - 8);
+
+        for (int i = startIndex; i < oldGeneration.size(); i++) {
+            Project fractal = oldGeneration.get(i);
+            
+            
+            // Draw fractals and first iterations
+            Graphics g = jPanel1.getGraphics();
+            fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4, Color.RED);
+
+            Graphics g1 = jPanel2.getGraphics();
+            fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25, Color.BLACK);
+
+        }
     }//GEN-LAST:event_bestFractalsActionPerformed
+
+    public void displayFractal(int fractalIndex) {
+        // Check if the fractal index is valid
+        if (fractalIndex >= 0 && fractalIndex < oldGeneration.size()) {
+            Project fractal = oldGeneration.get(fractalIndex);
+            
+
+            // Get the graphics objects for the panels
+            Graphics g1 = jPanel1.getGraphics();
+            Graphics g2 = jPanel2.getGraphics();
+
+            // Draw fractals and first iterations
+            fractals.drawFractals(g1, fractal.getX1(), fractal.getY1(), fractal.getX2(), fractal.getY2(),fractal.getX3(), fractal.getY3(), fractal.getX4(), fractal.getY4(), 4, Color.RED);
+            fractals.drawFirstIteration(g2, fractal.getX1(), fractal.getY1(), fractal.getX2(), fractal.getY2(), fractal.getX3(), fractal.getY3(), fractal.getX4(), fractal.getY4(), 0.25, Color.BLACK);
+                    
+        }
+    }
 
     /**
      * @param args the command line arguments

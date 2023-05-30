@@ -118,7 +118,7 @@ public class Individual {
         if (coveragePercentage >= 40) {
             grade += 3;
         } else if (coveragePercentage < 30) {
-            grade--;
+            grade-=2;
         }
 
         // Check the angles between each line and give the grade
