@@ -107,7 +107,7 @@ public class Individual {
 
         //  The allowed angles, maxim and minim 
         double minAngle = 40.0;
-        double maxAngle = 120.0;
+        double maxAngle = 130.0;
 
         // The minim allowed distance  between x1,y1 and x4,y4
         double minDistance = 15.0;

@@ -43,6 +43,14 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox1 = new javax.swing.JCheckBox();
         fractal1 = new javax.swing.JButton();
         fractal5 = new javax.swing.JButton();
         fractal2 = new javax.swing.JButton();
@@ -54,7 +62,6 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         seeButton = new javax.swing.JButton();
         newPaintsButton = new javax.swing.JButton();
         bestFractals = new javax.swing.JButton();
-        grade = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,6 +95,70 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
 
+        jCheckBox8.setText("jCheckBox8");
+        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, -1, -1));
+
+        jCheckBox7.setText("jCheckBox7");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, -1, -1));
+
+        jCheckBox6.setText("jCheckBox6");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, -1, -1));
+
+        jCheckBox5.setText("jCheckBox5");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
+
+        jCheckBox4.setText("jCheckBox4");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
+
+        jCheckBox3.setText("jCheckBox3");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
+
+        jCheckBox2.setText("jCheckBox2");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
+
         fractal1.setText("Fractal 1");
         fractal1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +174,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 fractal5ActionPerformed(evt);
             }
         });
-        getContentPane().add(fractal5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
+        getContentPane().add(fractal5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, -1));
 
         fractal2.setText("Fractal 2");
         fractal2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +190,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 fractal6ActionPerformed(evt);
             }
         });
-        getContentPane().add(fractal6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, -1, -1));
+        getContentPane().add(fractal6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, -1, -1));
 
         fractal3.setText("Fractal 3");
         fractal3.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +206,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 fractal7ActionPerformed(evt);
             }
         });
-        getContentPane().add(fractal7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
+        getContentPane().add(fractal7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, -1, -1));
 
         fractal4.setText("Fractal 4");
         fractal4.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +222,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
                 fractal8ActionPerformed(evt);
             }
         });
-        getContentPane().add(fractal8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, -1, -1));
+        getContentPane().add(fractal8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, -1, -1));
 
         seeButton.setText("See the paints");
         seeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -177,17 +248,8 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         });
         getContentPane().add(bestFractals, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, -1, -1));
 
-        grade.setBackground(new java.awt.Color(153, 153, 153));
-        grade.setText("Please give some grades");
-        grade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gradeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(grade, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 150, 40));
-
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\andreea\\Desktop\\Facultate+CV\\test_licenta\\black fractal.PNG")); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,14 +265,6 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 
     Fractals_shapes fractals;
     //Project coordinates;
-
-    //ArrayList<Project> fractals;
-
-    private void gradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_gradeActionPerformed
 
     private void seeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeButtonActionPerformed
         // TODO add your handling code here:
@@ -363,6 +417,17 @@ public class Fractal_Canvas extends javax.swing.JFrame {
     private void bestFractalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestFractalsActionPerformed
         // TODO add your handling code here:
 
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+        jCheckBox6.setSelected(false);
+        jCheckBox7.setSelected(false);
+        jCheckBox8.setSelected(false);
+        
+        
+        
         int k = 0;
         while (k < 10) {
 
@@ -470,6 +535,126 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bestFractalsActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox1.isSelected()) {
+            System.out.println("grade " + oldGeneration.get(0).getGrade());
+            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() + 20);
+            System.out.println("new grade " + oldGeneration.get(0).getGrade());
+        } else {
+            System.out.println("grade " + oldGeneration.get(0).getGrade());
+            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() - 20);
+            System.out.println("new grade " + oldGeneration.get(0).getGrade());
+        }
+
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox2.isSelected()) {
+            System.out.println("grade" + oldGeneration.get(1).getGrade());
+            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() + 20);
+            System.out.println("new garde " + oldGeneration.get(1).getGrade());
+        } else {
+            System.out.println("gardes" + oldGeneration.get(1).getGrade());
+            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() - 20);
+            System.out.println("new grade " + oldGeneration.get(1).getGrade());
+        }
+              
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox3.isSelected()) {
+            System.out.println("grade " + oldGeneration.get(2).getGrade());
+            oldGeneration.get(0).setGrade(oldGeneration.get(2).getGrade() + 20);
+            System.out.println("new garde " + oldGeneration.get(2).getGrade());
+        } else {
+            System.out.println("grade " + oldGeneration.get(2).getGrade());
+            oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() - 20);
+            System.out.println("new grade " + oldGeneration.get(2).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox4.isSelected()) {
+            System.out.println("grade " + oldGeneration.get(3).getGrade());
+            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() + 20);
+            System.out.println("new grade "  + oldGeneration.get(3).getGrade());
+        } else {
+            System.out.println("grade " + oldGeneration.get(3).getGrade());
+            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() - 20);
+            System.out.println("new grade "  + oldGeneration.get(3).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox5.isSelected()) {
+            System.out.println("grade" + oldGeneration.get(4).getGrade());
+            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() + 20);
+            System.out.println("new grade "  + oldGeneration.get(4).getGrade());
+        } else {
+            System.out.println("grade" + oldGeneration.get(4).getGrade());
+            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() - 20);
+            System.out.println("new grade "  + oldGeneration.get(4).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox6.isSelected()) {
+            System.out.println("grade" + oldGeneration.get(5).getGrade());
+            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() + 20);
+            System.out.println("new grade "  + oldGeneration.get(5).getGrade());
+        } else {
+            System.out.println("grade" + oldGeneration.get(5).getGrade());
+            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() - 20);
+            System.out.println("new grade " + oldGeneration.get(5).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox7.isSelected()) {
+            System.out.println("grade" + oldGeneration.get(6).getGrade());
+            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() + 20);
+            System.out.println("new grade " + oldGeneration.get(6).getGrade());
+        } else {
+            System.out.println("grade" + oldGeneration.get(6).getGrade());
+            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() - 20);
+            System.out.println("new grade " + oldGeneration.get(6).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
+    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox8.isSelected()) {
+            System.out.println("grade " + oldGeneration.get(7).getGrade());
+            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() + 20);
+            System.out.println("new grade " + oldGeneration.get(7).getGrade());
+        } else {
+            System.out.println("grade" + oldGeneration.get(7).getGrade());
+            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() - 20);
+            System.out.println("new grade" + oldGeneration.get(7).getGrade());
+        }
+        
+    }//GEN-LAST:event_jCheckBox8ActionPerformed
+
     public void displayFractal(int fractalIndex) {
         // Check if the fractal index is valid
         if (fractalIndex >= 0 && fractalIndex < oldGeneration.size()) {
@@ -532,7 +717,14 @@ public class Fractal_Canvas extends javax.swing.JFrame {
     private javax.swing.JButton fractal6;
     private javax.swing.JButton fractal7;
     private javax.swing.JButton fractal8;
-    private javax.swing.JTextField grade;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
