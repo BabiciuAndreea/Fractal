@@ -540,11 +540,11 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         
         if (jCheckBox1.isSelected()) {
             System.out.println("grade " + oldGeneration.get(0).getGrade());
-            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() + 20);
+            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() + 10);
             System.out.println("new grade " + oldGeneration.get(0).getGrade());
         } else {
             System.out.println("grade " + oldGeneration.get(0).getGrade());
-            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() - 20);
+            oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(0).getGrade());
         }
 
@@ -554,12 +554,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (jCheckBox2.isSelected()) {
-            System.out.println("grade" + oldGeneration.get(1).getGrade());
-            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() + 20);
+            System.out.println("grade " + oldGeneration.get(1).getGrade());
+            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() + 10);
             System.out.println("new garde " + oldGeneration.get(1).getGrade());
         } else {
             System.out.println("gardes" + oldGeneration.get(1).getGrade());
-            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() - 20);
+            oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(1).getGrade());
         }
               
@@ -570,11 +570,11 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         
         if (jCheckBox3.isSelected()) {
             System.out.println("grade " + oldGeneration.get(2).getGrade());
-            oldGeneration.get(0).setGrade(oldGeneration.get(2).getGrade() + 20);
+            oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() + 10);
             System.out.println("new garde " + oldGeneration.get(2).getGrade());
         } else {
             System.out.println("grade " + oldGeneration.get(2).getGrade());
-            oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() - 20);
+            oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(2).getGrade());
         }
         
@@ -585,11 +585,11 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         
         if (jCheckBox4.isSelected()) {
             System.out.println("grade " + oldGeneration.get(3).getGrade());
-            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() + 20);
+            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() + 10);
             System.out.println("new grade "  + oldGeneration.get(3).getGrade());
         } else {
             System.out.println("grade " + oldGeneration.get(3).getGrade());
-            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() - 20);
+            oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() - 10);
             System.out.println("new grade "  + oldGeneration.get(3).getGrade());
         }
         
@@ -599,12 +599,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (jCheckBox5.isSelected()) {
-            System.out.println("grade" + oldGeneration.get(4).getGrade());
-            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() + 20);
+            System.out.println("grade " + oldGeneration.get(4).getGrade());
+            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() + 10);
             System.out.println("new grade "  + oldGeneration.get(4).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(4).getGrade());
-            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() - 20);
+            oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() - 10);
             System.out.println("new grade "  + oldGeneration.get(4).getGrade());
         }
         
@@ -614,12 +614,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (jCheckBox6.isSelected()) {
-            System.out.println("grade" + oldGeneration.get(5).getGrade());
-            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() + 20);
+            System.out.println("grade " + oldGeneration.get(5).getGrade());
+            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() + 10);
             System.out.println("new grade "  + oldGeneration.get(5).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(5).getGrade());
-            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() - 20);
+            oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(5).getGrade());
         }
         
@@ -629,12 +629,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (jCheckBox7.isSelected()) {
-            System.out.println("grade" + oldGeneration.get(6).getGrade());
-            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() + 20);
+            System.out.println("grade " + oldGeneration.get(6).getGrade());
+            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() + 10);
             System.out.println("new grade " + oldGeneration.get(6).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(6).getGrade());
-            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() - 20);
+            oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(6).getGrade());
         }
         
@@ -645,11 +645,11 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         
         if (jCheckBox8.isSelected()) {
             System.out.println("grade " + oldGeneration.get(7).getGrade());
-            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() + 20);
+            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() + 10);
             System.out.println("new grade " + oldGeneration.get(7).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(7).getGrade());
-            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() - 20);
+            oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() - 10);
             System.out.println("new grade" + oldGeneration.get(7).getGrade());
         }
         
