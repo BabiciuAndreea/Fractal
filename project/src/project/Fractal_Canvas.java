@@ -425,119 +425,121 @@ public class Fractal_Canvas extends javax.swing.JFrame {
         jCheckBox6.setSelected(false);
         jCheckBox7.setSelected(false);
         jCheckBox8.setSelected(false);
-        
-        
-        
-        int k = 0;
-        while (k < 10) {
 
-            k++;
-            firstParent = new ArrayList<>();
-            secondParent = new ArrayList<>();
-            firstChild = new ArrayList<>();
-            secondChild = new ArrayList<>();
-            newPaintings.clear();
-            newPaintings2.clear();
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            int k = 0;
+            while (k < 10) {
+
+                k++;
+                firstParent = new ArrayList<>();
+                secondParent = new ArrayList<>();
+                firstChild = new ArrayList<>();
+                secondChild = new ArrayList<>();
+                newPaintings.clear();
+                newPaintings2.clear();
+
+                for (int i = 0; i < 100; i++) {
+                    //System.out.println("i: " + i);  First generation with fitness applied
+                    figures = oldGeneration.get(i);
+                    oldGeneration.get(i).setGrade(generation.fitness(figures));
+                }
+
+                //New generation created 
+                for (int i = 0; i < 100; i++) {
+                    int newX1 = random.nextInt(400);
+                    int newY1 = random.nextInt(350);
+                    int newX2 = random.nextInt(400);
+                    int newY2 = random.nextInt(350);
+                    int newX3 = random.nextInt(400);
+                    int newY3 = random.nextInt(350);
+                    int newX4 = random.nextInt(400);
+                    int newY4 = random.nextInt(350);
+
+                    newPaintings.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
+                    newPaintings2.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
+                }
+
+                generation.bubbleSort(oldGeneration);
+
+                for (int i = 0; i < 100; i++) {
+                    //System.out.println("i: " + i);
+                    figures = oldGeneration.get(i);
+
+                }
+
+                for (int i = 0; i < 100; i++) {
+
+                    firstParent.clear(); //kill the first parent
+                    firstParent.add(generation.tournamentSelection(oldGeneration));
+
+                    secondParent.clear(); //kill the second parent
+                    secondParent.add(generation.tournamentSelection(oldGeneration));
+
+                    figures = newPaintings.get(i); //save new generation
+                    generation.crossover(firstParent, secondParent); //crossover over the new generation
+                    generation.mutate(firstChild);
+                    generation.mutate(secondChild); //aplied mutation on chlids
+
+                }
+
+                oldGeneration.clear(); //kill old generation
+                oldGeneration.addAll(newPaintings); // add new generation
+
+            }
 
             for (int i = 0; i < 100; i++) {
-                //System.out.println("i: " + i);  First generation with fitness applied
+
+                //new generation, when we have all the child, have to pass the fitness and get a grade
                 figures = oldGeneration.get(i);
                 oldGeneration.get(i).setGrade(generation.fitness(figures));
             }
-
-            //New generation created 
-            for (int i = 0; i < 100; i++) {
-                int newX1 = random.nextInt(400);
-                int newY1 = random.nextInt(350);
-                int newX2 = random.nextInt(400);
-                int newY2 = random.nextInt(350);
-                int newX3 = random.nextInt(400);
-                int newY3 = random.nextInt(350);
-                int newX4 = random.nextInt(400);
-                int newY4 = random.nextInt(350);
-
-                newPaintings.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
-                newPaintings2.add(new Project(newX1, newY1, newX2, newY2, newX3, newY3, newX4, newY4));
-            }
-
             generation.bubbleSort(oldGeneration);
 
             for (int i = 0; i < 100; i++) {
                 //System.out.println("i: " + i);
                 figures = oldGeneration.get(i);
 
-            }
-
-            for (int i = 0; i < 100; i++) {
-
-                firstParent.clear(); //kill the first parent
-                firstParent.add(generation.tournamentSelection(oldGeneration));
-
-                secondParent.clear(); //kill the second parent
-                secondParent.add(generation.tournamentSelection(oldGeneration));
-
-                figures = newPaintings.get(i); //save new generation
-                generation.crossover(firstParent, secondParent); //crossover over the new generation
-                generation.mutate(firstChild);
-                generation.mutate(secondChild); //aplied mutation on chlids
+                //oldGeneration.get(i).setGrade(generation.fitness(figures));
+                //new generation after fitness and the grade they get
+                System.out.println("Fractals: " + i);
+                System.out.println("Grade: " + oldGeneration.get(i).getGrade());
 
             }
+            System.out.print("\n");
 
-            oldGeneration.clear(); //kill old generation
-            oldGeneration.addAll(newPaintings); // add new generation
+            System.out.print("Best fractals" + "\n");
+            for (int j = 0; j < 8 && j < oldGeneration.size(); j++) {
+                best = oldGeneration.get(j);
+                System.out.println("Fractal: " + j);
+                System.out.println("Grade: " + best.getGrade());
+                System.out.println();
+            }
 
-        }
+            //for graphics 
+            fractals = new Fractals_shapes();
 
-        for (int i = 0; i < 100; i++) {
+            int startIndex = Math.max(0, oldGeneration.size() - 8);
 
-            //new generation, when we have all the child, have to pass the fitness and get a grade
-            figures = oldGeneration.get(i);
-            oldGeneration.get(i).setGrade(generation.fitness(figures));
-        }
-        generation.bubbleSort(oldGeneration);
+            for (int i = startIndex; i < oldGeneration.size(); i++) {
+                Project fractal = oldGeneration.get(i);
 
-        for (int i = 0; i < 100; i++) {
-            //System.out.println("i: " + i);
-            figures = oldGeneration.get(i);
+                // Draw fractals and first iterations
+                Graphics g = jPanel1.getGraphics();
+                fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4, Color.RED);
 
-            //oldGeneration.get(i).setGrade(generation.fitness(figures));
-            //new generation after fitness and the grade they get
-            System.out.println("Fractals: " + i);
-            System.out.println("Grade: " + oldGeneration.get(i).getGrade());
+                Graphics g1 = jPanel2.getGraphics();
+                fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25, Color.BLACK);
 
-        }
-        System.out.print("\n");
-
-        System.out.print("Best fractals" + "\n");
-        for (int j = 0; j < 8 && j < oldGeneration.size(); j++) {
-            best = oldGeneration.get(j);
-            System.out.println("Fractal: " + j);
-            System.out.println("Grade: " + best.getGrade());
-            System.out.println();
-        }
-
-        //for graphics 
-        fractals = new Fractals_shapes();
-
-        int startIndex = Math.max(0, oldGeneration.size() - 8);
-
-        for (int i = startIndex; i < oldGeneration.size(); i++) {
-            Project fractal = oldGeneration.get(i);
-            
-            
-            // Draw fractals and first iterations
-            Graphics g = jPanel1.getGraphics();
-            fractals.drawFractals(g, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 4, Color.RED);
-
-            Graphics g1 = jPanel2.getGraphics();
-            fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25, Color.BLACK);
-
+            }
         }
     }//GEN-LAST:event_bestFractalsActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox1.isSelected()) {
             System.out.println("grade " + oldGeneration.get(0).getGrade());
             oldGeneration.get(0).setGrade(oldGeneration.get(0).getGrade() + 10);
@@ -552,7 +554,7 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox2.isSelected()) {
             System.out.println("grade " + oldGeneration.get(1).getGrade());
             oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() + 10);
@@ -562,12 +564,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             oldGeneration.get(1).setGrade(oldGeneration.get(1).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(1).getGrade());
         }
-              
+
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox3.isSelected()) {
             System.out.println("grade " + oldGeneration.get(2).getGrade());
             oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() + 10);
@@ -577,57 +579,57 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             oldGeneration.get(2).setGrade(oldGeneration.get(2).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(2).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox4.isSelected()) {
             System.out.println("grade " + oldGeneration.get(3).getGrade());
             oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() + 10);
-            System.out.println("new grade "  + oldGeneration.get(3).getGrade());
+            System.out.println("new grade " + oldGeneration.get(3).getGrade());
         } else {
             System.out.println("grade " + oldGeneration.get(3).getGrade());
             oldGeneration.get(3).setGrade(oldGeneration.get(3).getGrade() - 10);
-            System.out.println("new grade "  + oldGeneration.get(3).getGrade());
+            System.out.println("new grade " + oldGeneration.get(3).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox5.isSelected()) {
             System.out.println("grade " + oldGeneration.get(4).getGrade());
             oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() + 10);
-            System.out.println("new grade "  + oldGeneration.get(4).getGrade());
+            System.out.println("new grade " + oldGeneration.get(4).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(4).getGrade());
             oldGeneration.get(4).setGrade(oldGeneration.get(4).getGrade() - 10);
-            System.out.println("new grade "  + oldGeneration.get(4).getGrade());
+            System.out.println("new grade " + oldGeneration.get(4).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox6.isSelected()) {
             System.out.println("grade " + oldGeneration.get(5).getGrade());
             oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() + 10);
-            System.out.println("new grade "  + oldGeneration.get(5).getGrade());
+            System.out.println("new grade " + oldGeneration.get(5).getGrade());
         } else {
             System.out.println("grade" + oldGeneration.get(5).getGrade());
             oldGeneration.get(5).setGrade(oldGeneration.get(5).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(5).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox7.isSelected()) {
             System.out.println("grade " + oldGeneration.get(6).getGrade());
             oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() + 10);
@@ -637,12 +639,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             oldGeneration.get(6).setGrade(oldGeneration.get(6).getGrade() - 10);
             System.out.println("new grade " + oldGeneration.get(6).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
         // TODO add your handling code here:
-        
+
         if (jCheckBox8.isSelected()) {
             System.out.println("grade " + oldGeneration.get(7).getGrade());
             oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() + 10);
@@ -652,23 +654,22 @@ public class Fractal_Canvas extends javax.swing.JFrame {
             oldGeneration.get(7).setGrade(oldGeneration.get(7).getGrade() - 10);
             System.out.println("new grade" + oldGeneration.get(7).getGrade());
         }
-        
+
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     public void displayFractal(int fractalIndex) {
         // Check if the fractal index is valid
         if (fractalIndex >= 0 && fractalIndex < oldGeneration.size()) {
             Project fractal = oldGeneration.get(fractalIndex);
-            
 
             // Get the graphics objects for the panels
             Graphics g1 = jPanel1.getGraphics();
             Graphics g2 = jPanel2.getGraphics();
 
             // Draw fractals and first iterations
-            fractals.drawFractals(g1, fractal.getX1(), fractal.getY1(), fractal.getX2(), fractal.getY2(),fractal.getX3(), fractal.getY3(), fractal.getX4(), fractal.getY4(), 4, Color.RED);
+            fractals.drawFractals(g1, fractal.getX1(), fractal.getY1(), fractal.getX2(), fractal.getY2(), fractal.getX3(), fractal.getY3(), fractal.getX4(), fractal.getY4(), 4, Color.RED);
             fractals.drawFirstIteration(g2, fractal.getX1(), fractal.getY1(), fractal.getX2(), fractal.getY2(), fractal.getX3(), fractal.getY3(), fractal.getX4(), fractal.getY4(), 0.25, Color.BLACK);
-                    
+
         }
     }
 
