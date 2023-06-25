@@ -331,7 +331,12 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g1 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g1, oldGeneration.get(0).getX1(), oldGeneration.get(0).getY1(), oldGeneration.get(0).getX2(), oldGeneration.get(0).getY2(), oldGeneration.get(0).getX3(), oldGeneration.get(0).getY3(), oldGeneration.get(0).getX4(), oldGeneration.get(0).getY4(), 0.25);
-        displayFractal(0);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(0);
+        }
 
     }//GEN-LAST:event_fractal1ActionPerformed
 
@@ -342,7 +347,14 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(4).getX1(), oldGeneration.get(4).getY1(), oldGeneration.get(4).getX2(), oldGeneration.get(4).getY2(), oldGeneration.get(4).getX3(), oldGeneration.get(4).getY3(), oldGeneration.get(4).getX4(), oldGeneration.get(4).getY4(), 0.25);
-        displayFractal(4);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(4);
+        }
+
+//displayFractal(4);
     }//GEN-LAST:event_fractal5ActionPerformed
 
     private void fractal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal2ActionPerformed
@@ -353,7 +365,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(1).getX1(), oldGeneration.get(1).getY1(), oldGeneration.get(1).getX2(), oldGeneration.get(1).getY2(), oldGeneration.get(1).getX3(), oldGeneration.get(1).getY3(), oldGeneration.get(1).getX4(), oldGeneration.get(1).getY4(), 0.25);
-        displayFractal(1);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(1);
+        }
+
+
+//displayFractal(1);
     }//GEN-LAST:event_fractal2ActionPerformed
 
     private void fractal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal3ActionPerformed
@@ -364,7 +384,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(2).getX1(), oldGeneration.get(2).getY1(), oldGeneration.get(2).getX2(), oldGeneration.get(2).getY2(), oldGeneration.get(2).getX3(), oldGeneration.get(2).getY3(), oldGeneration.get(2).getX4(), oldGeneration.get(2).getY4(), 0.25);
-        displayFractal(2);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(2);
+        }
+
+
+//displayFractal(2);
     }//GEN-LAST:event_fractal3ActionPerformed
 
     private void fractal4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal4ActionPerformed
@@ -375,7 +403,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(3).getX1(), oldGeneration.get(3).getY1(), oldGeneration.get(3).getX2(), oldGeneration.get(3).getY2(), oldGeneration.get(3).getX3(), oldGeneration.get(3).getY3(), oldGeneration.get(3).getX4(), oldGeneration.get(3).getY4(), 0.25);
-        displayFractal(3);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(3);
+        }
+
+
+//displayFractal(3);
     }//GEN-LAST:event_fractal4ActionPerformed
 
     private void fractal6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fractal6ActionPerformed
@@ -386,7 +422,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(5).getX1(), oldGeneration.get(5).getY1(), oldGeneration.get(5).getX2(), oldGeneration.get(5).getY2(), oldGeneration.get(5).getX3(), oldGeneration.get(5).getY3(), oldGeneration.get(5).getX4(), oldGeneration.get(5).getY4(), 0.25);
-        displayFractal(5);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(5);
+        }
+
+
+//displayFractal(5);
 
     }//GEN-LAST:event_fractal6ActionPerformed
 
@@ -398,7 +442,15 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(6).getX1(), oldGeneration.get(6).getY1(), oldGeneration.get(6).getX2(), oldGeneration.get(6).getY2(), oldGeneration.get(6).getX3(), oldGeneration.get(6).getY3(), oldGeneration.get(6).getX4(), oldGeneration.get(6).getY4(), 0.25);
-        displayFractal(6);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(6);
+        }
+
+
+//displayFractal(6);
 
     }//GEN-LAST:event_fractal7ActionPerformed
 
@@ -410,7 +462,14 @@ public class Fractal_Canvas extends javax.swing.JFrame {
 //
 //        Graphics g5 = jPanel2.getGraphics();
 //        fractals.drawFirstIteration(g5, oldGeneration.get(7).getX1(), oldGeneration.get(7).getY1(), oldGeneration.get(7).getX2(), oldGeneration.get(7).getY2(), oldGeneration.get(7).getX3(), oldGeneration.get(7).getY3(), oldGeneration.get(7).getX4(), oldGeneration.get(7).getY4(), 0.25);
-        displayFractal(7);
+        if (oldGeneration == null) {
+            System.out.println("Need to create the first generation");
+        } else {
+
+            displayFractal(7);
+        }
+
+//displayFractal(7);
 
     }//GEN-LAST:event_fractal8ActionPerformed
 
